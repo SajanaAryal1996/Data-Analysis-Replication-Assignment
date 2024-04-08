@@ -36,7 +36,19 @@ output: html
 
 -   The study identified thirty-eight children who demonstrated EHF hearing impairment despite presenting clinically normal audiograms. Through a linear mixed-effects model analysis, it was observed that children with EHF hearing impairment exhibited a lower mean DPOAE magnitude compared to those with normal EHF sensitivity. The overall DPOAE magnitude was significantly diminished in the EHF-impaired group relative to the EHF-normal group, with no significant effects of age or history of otitis media (OM) observed. Furthermore, children with EHF impairment displayed relatively higher pure-tone averages for standard audiometric frequencies, indicating potential preclinical cochlear deficits in lower frequencies where hearing thresholds remained normal. These results highlight the prevalence of EHF impairments in children and stress the importance of clinically identifying such impairments, even in the absence of a history of otitis media, to address potential difficulties in speech-in-noise recognition and associated cochlear deficits.
 
-    3.  DATA ANALYSIS REPLICATION OBJECTIVES: In this data replication assignment, My objectives are to replicate the following analyses in order to highlight the major findings of the study: - Overall speech recognition threshold according to age group (Descriptive statistics) - The extended high frequency threshold for the EHF-normal and EHF-impaired groups (Descriptive statistics). - Visualization of hearing threshold across frequencies (250Hz-16kHz) for both the EHF-normal and EHF-impaired populations to illustrate the main findings of the study. - Visualization of DPOAE magnitude for both the EHF-normal and EHF-impaired groups across frequencies. - Replication of inferential statistics to demonstrate differences in threshold between the groups for both standard frequency and extended high frequency. - Replication of inferential statistics to confirm differences in DPOAE magnitude while controlling for the effects of age and otitis media infection.
+    3.  DATA ANALYSIS REPLICATION OBJECTIVES: In this data replication assignment, My objectives are to replicate the following analyses in order to highlight the major findings of the study:
+
+        \- Overall speech recognition threshold according to age group (Descriptive statistics)
+
+        \- The extended high frequency threshold for the EHF-normal and EHF-impaired groups (Descriptive statistics).
+
+        \- Visualization of hearing threshold across frequencies (250Hz-16kHz) for both the EHF-normal and EHF-impaired populations to illustrate the main findings of the study.
+
+         - Visualization of DPOAE magnitude for both the EHF-normal and EHF-impaired groups across frequencies.
+
+        \- Replication of inferential statistics to demonstrate differences in threshold between the groups for both standard frequency and extended high frequency.
+
+        \- Replication of inferential statistics to confirm differences in DPOAE magnitude while controlling for the effects of age and otitis media infection.
 
         4.  **Read the original dataset provided by the authors.**
 
