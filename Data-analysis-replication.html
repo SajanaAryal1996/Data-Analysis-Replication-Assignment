@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sajana Aryal">
+<meta name="dcterms.date" content="2024-04-08">
+
+<title>Data Analysis Replication Assignment</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Data-analysis-replication_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Data-analysis-replication_files/libs/quarto-html/quarto.js"></script>
+<script src="Data-analysis-replication_files/libs/quarto-html/popper.min.js"></script>
+<script src="Data-analysis-replication_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Data-analysis-replication_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Data-analysis-replication_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Data-analysis-replication_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Data-analysis-replication_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Data-analysis-replication_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Data-analysis-replication_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Analysis Replication Assignment</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sajana Aryal </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 8, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<ol type="1">
+<li><p>DEFINITION OF COMMON TERMINOLOGIES USED ACROSS AN ARTICLE: GLOSSARY (FOR READERS UNDERSTANDING OF SUBSEQUENT CONTENT KEPT AT THE BEGINING)</p>
+<p><strong><em>i ) Standard Frequency (SF)</em></strong>: Refers to frequencies ranging from 250Hz to 8kHz.</p>
+<p><strong><em>ii) Extended High Frequency (EHF):</em></strong> Refers to frequencies ranging from 9kHz to 16kHz. In this article, the author calculated the average thresholds at 10kHz, 12.5kHz, and 16kHz to determine EHF threshold. If the threshold exceeds 20dB at any frequency and in either ear, it is considered as EHF loss.</p>
+<p><strong><em>iii) Otitis Media (OM):</em></strong> Refers to a medical condition caused by recurrent ear infections.</p>
+<p><strong><em>iv) Distortion Product Otoacoustic Emission (DPOAE):</em></strong> A test used to assess the functionality of outer hair cells, which are part of the inner ear structure in humans.</p>
+<p><strong><em>v) PTA</em></strong> : Pure tone average</p>
+<p><em>vi) PTASF :</em> Pure tone average of standard frequencies (average threshold of frequencies 500Hz, 1kHz, 2kHz and 4kHz)</p>
+<p><em><strong>vii) PTAEHF</strong>:</em> Pure tone average of extended high frequencies (10kHz, 12.5kHz and 16kHz)</p></li>
+<li><p>INTRODUCTION OF AN ARTICLE</p>
+<p>A) BACKGROUND</p>
+<p>Regardless of degree and type, pediatric hearing impairment has a detrimental effect on speech perception, cognition, oral language development, academic outcomes, and literacy. Hearing assessment in the clinic is limited to 8 kHz, although humans can hear up to 20 kHz. Hearing impairment in the extended high frequencies (EHFs &gt; 8 kHz) can occur despite clinically normal hearing. However, the nature and effects of EHF hearing impairment in children remain unknown. This study aimed to determine the effects of EHF hearing impairment on speech-in-noise recognition in children and to examine whether hearing impairment in the EHFs is associated with altered cochlear functioning in the standard frequencies.</p>
+<p><strong>B )Methods (In brief)</strong></p>
+<p>542 participants (4 to 19 years) with clinically normal audiograms were taken via convenient sampling method. Participants identified with EHF impairment were assigned as cases in a subsequent case-control study. EHF loss was defined as hearing thresholds greater than 20 dB in at least one EHFs (10, 12.5, or 16 kHz). Speech recognition thresholds in multi-talker babble were measured using the digit triplet test. Distortion product otoacoustic emissions (f2 = 2, 3, 4, and 5 kHz) were measured to assess cochlear functioning<em>.</em></p></li>
+</ol>
+<p><strong>C) Main results and conclusion of an article (in brief)</strong></p>
+<ul>
+<li>The study identified thirty-eight children who demonstrated EHF hearing impairment despite presenting clinically normal audiograms. Through a linear mixed-effects model analysis, it was observed that children with EHF hearing impairment exhibited a lower mean DPOAE magnitude compared to those with normal EHF sensitivity. The overall DPOAE magnitude was significantly diminished in the EHF-impaired group relative to the EHF-normal group, with no significant effects of age or history of otitis media (OM) observed. Furthermore, children with EHF impairment displayed relatively higher pure-tone averages for standard audiometric frequencies, indicating potential preclinical cochlear deficits in lower frequencies where hearing thresholds remained normal. These results highlight the prevalence of EHF impairments in children and stress the importance of clinically identifying such impairments, even in the absence of a history of otitis media, to address potential difficulties in speech-in-noise recognition and associated cochlear deficits.</li>
+</ul>
+<pre><code>3.  DATA ANALYSIS REPLICATION OBJECTIVES:
+
+    In this data replication assignment, My objectives are to replicate the following analyses in order to highlight the major findings of the study:
+
+    -   Overall speech recognition threshold according to age group (Descriptive statistics)
+
+    -   The extended high frequency threshold for the EHF-normal and EHF-impaired groups (Descriptive statistics).
+
+    -   Visualization of hearing threshold across frequencies (250Hz-16kHz) for both the EHF-normal and EHF-impaired populations to illustrate the main findings of the study.
+
+    -   Visualization of DPOAE magnitude for both the EHF-normal and EHF-impaired groups across frequencies.
+
+    -   Replication of inferential statistics to demonstrate differences in threshold between the groups for both standard frequency and extended high frequency.
+
+    -   Replication of inferential statistics to confirm differences in DPOAE magnitude while controlling for the effects of age and otitis media infection.
+
+4.  **Read the original dataset provided by the authors**
+
+::: {.cell}
+
+```{.r .cell-code}
+library(tidyverse)
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+```
+:::
+
+```{.r .cell-code}
+f &lt;- "Data/NHC_DataAna_Sajana.csv"  
+d &lt;- read.csv(f, header = TRUE, sep = ",")
+head(d)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+  SubjectID  Age YearsNew Years MonthsNew Months  Combined Age_round Age_log
+1       ID1  9,3       9,     9        ,3      3  9.250000         9  0.9542
+2       ID2  7,1       7,     7        ,1      1  7.083333         7  0.8451
+3       ID3 13,8       13    13        ,8      8 13.666667        14  1.1461
+4       ID4  9,7       9,     9        ,7      7  9.583333        10  1.0000
+5       ID5 11,9       11    11        ,9      9 11.750000        12  1.0792
+6       ID6 6,10       6,     6        10     10  6.833333         7  0.8451
+  AgeLimit Sex Socioeconomic_Status Headphone.2hrs..1.Yes.
+1    FALSE   F                                           0
+2    FALSE   F                                           0
+3    FALSE   M                                           0
+4    FALSE   M                                           0
+5    FALSE   M                                           0
+6    FALSE   F                                           0
+  Years.of.headphone.use Speech.Lang.Complaint. Spin.in.noise..Y.N
+1                   &lt;NA&gt;                     No                 No
+2                   &lt;NA&gt;                     No                 No
+3                   &lt;NA&gt;                     No                 No
+4                   &lt;NA&gt;                     No                 No
+5                   &lt;NA&gt;                     No                 No
+6                   &lt;NA&gt;                     No                 No
+  Online.classes.during.COVID R1_250 R1_500 R1_1000 R1_2000 R1_4000 R1_6000
+1                                  5     15      10       5       0      -5
+2                                  5     10      10       0       5       5
+3                                 10     10       5       5      -5     -10
+4                                  5      5       5       0       0       5
+5             USED HEADPHONES      5     10       0      -5      -5      -5
+6                                  5      5       0       0       5       5
+  R1_8000 R1_10000 R1_12500 R1_16000 L1_250 L1_500 L1_1000 L1_2000 L1_4000
+1      -5        5       -5       -5      5      5       5       5      -5
+2       0       -5        0       -5     10     15      10      15       5
+3     -10       -5        5        0      5     10       5       5      10
+4       5        0        5       -5      5      5      10       0       0
+5      -5      -10      -10       10     10      5       0       0      -5
+6       5       -5        5       10     10     10       5       5       0
+  L1_6000 L1_8000 L1_10000 L1_12000 L1_16000 H.O.Otitismedia.or.PE.tube
+1       0      -5      -10        0        5                         No
+2       5      10       -5       -5       10                         No
+3      -5      -5       -5       -5        5                         No
+4       5       5        5       10       -5                         No
+5      -5      -5      -10        0        5                         No
+6       0       0        5        0       10                         No
+  H.O_OM.Pus..Pain..etc. HO_OM EarMatched_FDT1 EarMatched_FDT2 EarMatched_BDT1
+1                            0              NA              NA              NA
+2                            0              NA              NA              NA
+3                            0              NA              NA              NA
+4                            0              NA              NA              NA
+5                            0              NA              NA              NA
+6                            0              NA              NA              NA
+  EarMatched_BDT2 R_DIN L_DIN Gap R2_250 R2_500 R2_1000 R2_2000 R2_4000 R2_6000
+1              NA  -6.9  -9.8         NA     NA      NA      NA      NA      NA
+2              NA  -5.7  -5.1         NA     NA      NA      NA      NA      NA
+3              NA -10.4  -9.2         NA     NA      NA      NA      NA      NA
+4              NA  -8.5  -8.7         NA     NA      NA      NA      NA      NA
+5              NA -11.2 -13.8         NA     NA      NA      NA      NA      NA
+6              NA  -6.6  -9.1         NA     NA      NA      NA      NA      NA
+  R2_8000 R2_10000 R2_12500 R2_16000 L2_250 L2_500 L2_1000 L2_2000 L2_4000
+1      NA       NA       NA       NA     NA     NA      NA      NA      NA
+2      NA       NA       NA       NA     NA     NA      NA      NA      NA
+3      NA       NA       NA       NA     NA     NA      NA      NA      NA
+4      NA       NA       NA       NA     NA     NA      NA      NA      NA
+5      NA       NA       NA       NA     NA     NA      NA      NA      NA
+6      NA       NA       NA       NA     NA     NA      NA      NA      NA
+  L2_6000 L2_8000 L2_10000 L2_12500 L2_16000 R_2K.NF R_2K.Amp R_2K.SNR R_3K.NF
+1      NA      NA       NA       NA       NA      NA       NA       NA        
+2      NA      NA       NA       NA       NA      NA       NA       NA        
+3      NA      NA       NA       NA       NA      NA       NA       NA        
+4      NA      NA       NA       NA       NA      NA       NA       NA        
+5      NA      NA       NA       NA       NA      NA       NA       NA        
+6      NA      NA       NA       NA       NA      NA       NA       NA        
+  R_3K.Amp R_3K.SNR R_4K.NF R_4K.Amp R_4K.SNR R_5K.NF R_5K.Amp R_5K.SNR L_2K.NF
+1       NA       NA      NA       NA       NA      NA       NA       NA      NA
+2       NA       NA      NA       NA       NA      NA       NA       NA      NA
+3       NA       NA      NA       NA       NA      NA       NA       NA      NA
+4       NA       NA      NA       NA       NA      NA       NA       NA      NA
+5       NA       NA      NA       NA       NA      NA       NA       NA      NA
+6       NA       NA      NA       NA       NA      NA       NA       NA      NA
+  L_2K.Amp L_2K.SNR L_3K.NF L_3K.Amp L_3K.SNR L_4K.NF L_4K.Amp L_4K.SNR L_5K.NF
+1       NA       NA      NA       NA       NA      NA       NA       NA      NA
+2       NA       NA      NA       NA       NA      NA       NA       NA      NA
+3       NA       NA      NA       NA       NA      NA       NA       NA      NA
+4       NA       NA      NA       NA       NA      NA       NA       NA      NA
+5       NA       NA      NA       NA       NA      NA       NA       NA      NA
+6       NA       NA      NA       NA       NA      NA       NA       NA      NA
+  L_5K.Amp L_5K.SNR R250_avg R500_avg R1000_avg R2000_avg R4000_avg R6000_avg
+1       NA       NA        5       15        10         5         0        -5
+2       NA       NA        5       10        10         0         5         5
+3       NA       NA       10       10         5         5        -5       -10
+4       NA       NA        5        5         5         0         0         5
+5       NA       NA        5       10         0        -5        -5        -5
+6       NA       NA        5        5         0         0         5         5
+  R8000_avg R_SF_avg R_SP_avg R10000_avg R12500_avg R16000_avg R_EHF_avg
+1        -5   3.5714     7.50          5         -5         -5   -1.6667
+2         0   5.0000     6.25         -5          0         -5   -3.3333
+3       -10   0.7143     3.75         -5          5          0    0.0000
+4         5   3.5714     2.50          0          5         -5    0.0000
+5        -5  -0.7143     0.00        -10        -10         10   -3.3333
+6         5   3.5714     2.50         -5          5         10    3.3333
+  L250_avg L500_avg L1000_avg L2000_avg L4000_avg L6000_avg L8000_avg L_SF_avg
+1        5        5         5         5        -5         0        -5   1.4286
+2       10       15        10        15         5         5        10  10.0000
+3        5       10         5         5        10        -5        -5   3.5714
+4        5        5        10         0         0         5         5   4.2857
+5       10        5         0         0        -5        -5        -5   0.0000
+6       10       10         5         5         0         0         0   4.2857
+  L_SP_avg L10000_avg L12500_avg L16000_avg L_EHF_avg EHF_loss_R EHF_loss_L
+1     2.50        -10          0          5   -1.6667          0          0
+2    11.25         -5         -5         10    0.0000          0          0
+3     7.50         -5         -5          5   -1.6667          0          0
+4     3.75          5         10         -5    3.3333          0          0
+5     0.00        -10          0          5   -1.6667          0          0
+6     5.00          5          0         10    5.0000          0          0
+  EHF_bilateral EHF_uni EHFLossGroup EHF_Loss_Group_Update EHF_uni_R EHF_uni_L
+1             0       0            0                     0         0         0
+2             0       0            0                     0         0         0
+3             0       0            0                     0         0         0
+4             0       0            0                     0         0         0
+5             0       0            0                     0         0         0
+6             0       0            0                     0         0         0
+  R10000.20 R10000.20...Bi R10000.20...Uni R12500.20 R12500.20...Bi
+1         0              0               0         0              0
+2         0              0               0         0              0
+3         0              0               0         0              0
+4         0              0               0         0              0
+5         0              0               0         0              0
+6         0              0               0         0              0
+  R12500.20...Uni R16000.20 R16000.20...Bi R16000.20...Uni L10000.20
+1               0         0              0               0         0
+2               0         0              0               0         0
+3               0         0              0               0         0
+4               0         0              0               0         0
+5               0         0              0               0         0
+6               0         0              0               0         0
+  L10000.20...Bi L10000.20...Uni L12500.20 L12500.20...Bi L12500.20...Uni
+1              0               0         0              0               0
+2              0               0         0              0               0
+3              0               0         0              0               0
+4              0               0         0              0               0
+5              0               0         0              0               0
+6              0               0         0              0               0
+  L16000.20 L16000.20...Bi L16000.20...Uni R10Konly R12Konly R16Konly
+1         0              0               0        0        0        0
+2         0              0               0        0        0        0
+3         0              0               0        0        0        0
+4         0              0               0        0        0        0
+5         0              0               0        0        0        0
+6         0              0               0        0        0        0
+  R10K.12Konly R10K.16konly R12K.16konly ALL R_SNR_avg L_SNR_Avg R_DPOE L_DPOE
+1            0            0            0   0        NA        NA     NA     NA
+2            0            0            0   0        NA        NA     NA     NA
+3            0            0            0   0        NA        NA     NA     NA
+4            0            0            0   0        NA        NA     NA     NA
+5            0            0            0   0        NA        NA     NA     NA
+6            0            0            0   0        NA        NA     NA     NA
+  AvgEHF_R_Set1 AvgEHF_L_Set1 AvgEHF_R_Set2 AvgEHF_L_Set2 AvgSF_R_Set1
+1     -1.666667     -1.666667            NA            NA    3.5714286
+2     -3.333333      0.000000            NA            NA    5.0000000
+3      0.000000     -1.666667            NA            NA    0.7142857
+4      0.000000      3.333333            NA            NA    3.5714286
+5     -3.333333     -1.666667            NA            NA   -0.7142857
+6      3.333333      5.000000            NA            NA    3.5714286
+  AvgSF_L_Set1 AvgSF_R_Set2 AvgSF_L_Set2 SES_Status Poor_DIN
+1     1.428571           NA           NA         Em        0
+2    10.000000           NA           NA         Em        0
+3     3.571429           NA           NA         Em        0
+4     4.285714           NA           NA         Em        0
+5     0.000000           NA           NA         Em        0
+6     4.285714           NA           NA         Em        0
+```
+:::
+
+```{.r .cell-code}
+ncol(d)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] 164
+```
+:::
+
+```{.r .cell-code}
+nrow(d)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+[1] 542
+```
+:::
+:::
+
+5.  **REPLICATION OF DESCRIPTIVE STATISTICS**</code></pre>
+<p><strong>A )</strong> Retrieve the subset of data containing the Right and Left digit in noise (DIN) values. Compute the average DIN by taking the mean of the Right and Left ear readings. Reorganize the dataset, naming it as EHF_Dataset. Calculate the mean and standard deviation of the speech recognition threshold according to age group</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  'EHF_DATASET.csv' contains  dataset of </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/EHF_DATASET.csv"</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(f, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter missing values and ages above 15</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Average_DIN),  <span class="co"># Filter rows where Average_DIN is not missing</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         Age_round <span class="sc">&gt;=</span> <span class="dv">4</span>,        <span class="co"># Filter rows where Age_round is greater than or equal to 4</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         Age_round <span class="sc">&lt;=</span> <span class="dv">15</span>)       <span class="co"># Filter rows where Age_round is less than or equal to 15</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column for age range</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_range =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    Age_round <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">"4-5"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    Age_round <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">"6-8"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    Age_round <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>) <span class="sc">~</span> <span class="st">"9-12"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    Age_round <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>) <span class="sc">~</span> <span class="st">"5-15"</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean and SD for each age range</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_range) <span class="sc">%&gt;%</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_Average_DIN =</span> <span class="fu">mean</span>(Average_DIN, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Average_DIN =</span> <span class="fu">sd</span>(Average_DIN, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the table like in article</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> summary_stats <span class="sc">%&gt;%</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Present_study =</span> <span class="fu">paste</span>(<span class="fu">round</span>(mean_Average_DIN, <span class="dv">2</span>), <span class="st">"("</span>, <span class="st">"\u00B1"</span>, <span class="fu">round</span>(sd_Average_DIN, <span class="dv">2</span>), <span class="st">")"</span>, <span class="at">sep =</span> <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age_range, Present_study)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  age_range Present_study
+  &lt;chr&gt;     &lt;chr&gt;        
+1 4-5       -4.58(±1.39) 
+2 5-15      -9.78(±2.48) 
+3 6-8       -7.05(±2.26) 
+4 9-12      -9.91(±2.76) </code></pre>
+</div>
+</div>
+<ul>
+<li><p><em>Comparison with the original article findings:</em> In the above code, I attempted to replicate the mean and standard deviation of speech recognition threshold according to age group. The mean and standard deviation reported in the original paper were -4.58 (1.49), -7.11 (2.37), -9.96 (2.80), and -8.29 (3.22) for the age groups 4-5, 6-8, 9-12, and 5-15 years, respectively.</p>
+<p>Based on the output obtained above, although there is slight variation after the decimal value, we were able to replicate the mean and standard deviation for three age groups: 4-5, 6-9, and 9-12 years. However, I found a different mean and standard deviation for the age group 5-15. The original article reported a mean of -8.29 (3.22) for the 5-15 years age range, whereas my calculation showed -9.78 (±2.48).</p>
+<p><em>T<strong>here could be several reasons for this discrepancy:</strong></em></p>
+<ol type="1">
+<li><p>The authors might have removed outliers during their calculations.</p></li>
+<li><p>The authors could have updated the age range during the publication, and they might not have provided an updated data sheet.</p></li>
+</ol>
+<p>B) Calculate Pure tone average of extended high frequencies for EHF Normal and EHF Impaired participants</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/threshold.csv"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Group =</span> <span class="fu">col_character</span>()))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average threshold and standard deviation for each group</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group) <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Average_Threshold =</span> <span class="fu">mean</span>(PTA_Avg_EHF, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD_Threshold =</span> <span class="fu">sd</span>(PTA_Avg_EHF, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the result</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  Group         Average_Threshold SD_Threshold
+  &lt;chr&gt;                     &lt;dbl&gt;        &lt;dbl&gt;
+1 EHF- Impaired             18.4          5.65
+2 EHF- Normal                4.82         5.10</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Comparison with original paper findings: The original paper reported mean PTAEHF values of 5 (SD = 5) and 18 dB HL (SD = 4) for EHF-normal and EHF-impaired children, respectively. Based on the output obtained above, we were able to replicate the PTAEHF values for both the EHF-Normal and EHF-Impaired groups. It’s worth noting that in the article, they rounded the values to rounded whole numbers, which matches our replicated findings.</p>
+<ol start="6" type="1">
+<li><strong>REPLICATION OF VISUALIZATION OF DATA</strong></li>
+</ol></li>
+</ul>
+<p>A) Create a separate dataset by including DPOAE data from the original dataframe. Read this dataset and generate boxplots for DPOAE Magnitude according to frequencies, distinguishing between two groups: EHF Normal and EHF Impaired. Additionally, include violin plots to represent the overall magnitude for both the EHF Loss and EHF Normal groups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the modified dataset</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/DPOAE_DATASET.csv"</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(f, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  SubjectID Age_round Freq       Group DPOAE_Magnitude DP_Combined
+1      ID35        11 2000 EHF- normal            11.8    10.58333
+2      ID37        13 2000 EHF- normal             6.9    13.41667
+3      ID43        12 2000 EHF- normal             9.7    11.50000
+4      ID44         9 2000 EHF- normal             4.7     9.25000
+5      ID45        13 2000 EHF- normal            12.5    12.58333
+6      ID53         9 2000 EHF- normal             5.9     8.50000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 750</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SubjectID"       "Age_round"       "Freq"            "Group"          
+[5] "DPOAE_Magnitude" "DP_Combined"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define custom summary function for mean</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>custom_summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  mean_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">y =</span> mean_val))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder levels of Group variable</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">factor</span>(d<span class="sc">$</span>Group, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"EHF- normal"</span>, <span class="st">"EHF- impaired"</span>))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Freq), <span class="at">y =</span> DPOAE_Magnitude, <span class="at">fill =</span> Group)) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(d, Freq <span class="sc">!=</span> <span class="st">"Overall"</span>), </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.5</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">color =</span> Group),  </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span>  </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">data =</span> <span class="fu">filter</span>(d, Freq <span class="sc">==</span> <span class="st">"Overall"</span>),</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Freq), <span class="at">y =</span> DPOAE_Magnitude, <span class="at">group =</span> Group, <span class="at">fill =</span> Group), </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">trim =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.9</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.5</span>),</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">data =</span> <span class="fu">filter</span>(d, (Freq <span class="sc">==</span> <span class="st">"Overall"</span> <span class="sc">&amp;</span> Group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"EHF- normal"</span>, <span class="st">"EHF- impaired"</span>))),</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="fl">0.5</span>,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>               <span class="at">outlier.shape =</span> <span class="cn">NA</span>,</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">color =</span> Group),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span>  </span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">data =</span> d,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Freq), <span class="at">group =</span> Group, <span class="at">fill =</span> Group, <span class="at">color =</span> Group), </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.data =</span> custom_summary,</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"point"</span>,  </span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.75</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">shape =</span> <span class="dv">95</span>) <span class="sc">+</span> </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"EHF- normal"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"EHF- impaired"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"f2 Frequency(Hz)"</span>, <span class="at">y =</span> <span class="st">"DPOAE Magnitude (dBSPL)"</span>) <span class="sc">+</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"EHF- normal"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"EHF- impaired"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span>  </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),  <span class="co"># Adjust size of x-label</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.position =</span> <span class="st">"top"</span>, </span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.direction =</span> <span class="st">"vertical"</span>,</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.justification =</span> <span class="st">"right"</span>,  <span class="co"># Placing legend representation on the right as in original article</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.box.just =</span> <span class="st">"right"</span>,</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="co"># Removing legend title</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stat_summary</span>(<span class="at">data =</span> d,</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Freq), <span class="at">y =</span> DPOAE_Magnitude, <span class="at">group =</span> Group, <span class="at">color =</span> Group),</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.75</span>), <span class="at">size =</span> <span class="dv">3</span>, </span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape =</span> <span class="dv">95</span>) <span class="sc">+</span> </span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">group_by</span>(Freq, Group) <span class="sc">%&gt;%</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">summarise</span>(<span class="at">mean_val =</span> <span class="fu">mean</span>(DPOAE_Magnitude)),</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(Freq)) <span class="sc">-</span> <span class="fl">0.1</span>, <span class="at">xend =</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(Freq)) <span class="sc">+</span> <span class="fl">0.1</span>, </span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>                  <span class="at">y =</span> mean_val, <span class="at">yend =</span> mean_val, <span class="at">color =</span> Group),</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="fl">0.9</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Freq'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="Data-analysis-replication_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Comparison with the original paper: I am able to replicate the box violin plot as represented in the original paper (dashed horizontal line represent the mean).Here is the original figure represented from an article:</p>
+<p><img src="images/clipboard-1178171502.png" class="img-fluid"></p>
+<p>B) Hearing thresholds across frequencies for both the EHF-Normal and EHF-Impaired groups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/threshold.csv"</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Group =</span> <span class="fu">col_character</span>()))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define frequency labels in kHz</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>frequency_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="fl">12.5</span>, <span class="dv">16</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert data to long format for ggplot</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"R"</span>), <span class="at">names_to =</span> <span class="st">"Frequency"</span>, <span class="at">values_to =</span> <span class="st">"Hearing_threshold"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Frequency =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"R([0-9]+)_avg"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Frequency)) <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean and standard error of the mean (SEM) for each frequency and group</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data_long <span class="sc">%&gt;%</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Group, Frequency) <span class="sc">%&gt;%</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Hearing_threshold, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">sem =</span> <span class="fu">ifelse</span>(<span class="fu">n</span>() <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">sd</span>(Hearing_threshold, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())),  <span class="co"># Calculate SEM; if n() == 0, set SEM to 0</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge summary statistics with the long-format data</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_long, summary_stats, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Group"</span>, <span class="st">"Frequency"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> sem,</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">ymax =</span> mean <span class="sc">+</span> sem)</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Define breaks and labels for x-axis</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>x_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="fl">12.5</span>, <span class="dv">16</span>)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>x_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0.25"</span>, <span class="st">"0.5"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"4"</span>, <span class="st">"6"</span>, <span class="st">"8"</span>, <span class="st">"10"</span>, <span class="st">"12.5"</span>, <span class="st">"16"</span>)</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting with ggplot2</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> mean, <span class="at">color =</span> Group)) <span class="sc">+</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ymin, <span class="at">ymax =</span> ymax), <span class="at">width =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="fu">aes</span>(<span class="at">group =</span> Group)) <span class="sc">+</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Frequency (kHz)"</span>, <span class="at">y =</span> <span class="st">"Threshold (dB HL)"</span>) <span class="sc">+</span>  </span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">face=</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span>  <span class="co"># Remove gridlines</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">breaks =</span> x_breaks, <span class="at">labels =</span> x_labels) <span class="sc">+</span>  <span class="co"># Set x-axis to log scale with adjusted breaks and labels</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">0</span>)) <span class="sc">+</span> <span class="co"># Set y-axis limits from 30 to 0</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">reverse =</span> <span class="cn">TRUE</span>))  <span class="co"># Remove legend title to match article formating</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Data-analysis-replication_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><p>Comparison to the original paper: In this visualization, I am able to replicate almost identical results as presented in the original paper. However, I noticed that the standard error for the EHF-Impaired group was larger than reported in the original paper. One possible reason for this discrepancy could be that the authors had removed outliers during their analysis. Below is the original figure from an article:</p>
+<p><img src="images/clipboard-3779164509.png" class="img-fluid"></p>
+<ol start="7" type="1">
+<li><strong>REPLICATION OF INFERENTIAL STATISTICS</strong></li>
+</ol></li>
+</ul>
+<p>A) Conduct a t-test to determine the mean difference in hearing threshold at both standard frequency and Extended High-Frequency (EHF) for both the EHF-Normal and EHF-Impaired groups.”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/threshold.csv"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Group =</span> <span class="fu">col_character</span>()))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#For standard frequency average,  extract the means for each group</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(PTA_Avg_SF <span class="sc">~</span> Group, <span class="at">data =</span> d, <span class="at">FUN =</span> mean)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the mean for the EHF-Impaired group</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>mean_impaired <span class="ot">&lt;-</span> means<span class="sc">$</span><span class="st">`</span><span class="at">PTA_Avg_SF</span><span class="st">`</span>[means<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Impaired"</span>]</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the mean for the EHF-Normal group</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>mean_normal <span class="ot">&lt;-</span> means<span class="sc">$</span><span class="st">`</span><span class="at">PTA_Avg_SF</span><span class="st">`</span>[means<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Normal"</span>]</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between the means (to show as in article)</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>mean_difference_sf <span class="ot">&lt;-</span> mean_impaired <span class="sc">-</span> mean_normal</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the difference</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_difference_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.767184</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For extended high frequency average , extract the means for each group</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(PTA_Avg_EHF <span class="sc">~</span> Group, <span class="at">data =</span> d, <span class="at">FUN =</span> mean)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the mean for the EHF-Impaired group</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>mean_impaired <span class="ot">&lt;-</span> means<span class="sc">$</span><span class="st">`</span><span class="at">PTA_Avg_EHF</span><span class="st">`</span>[means<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Impaired"</span>]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the mean for the EHF-Normal group</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>mean_normal <span class="ot">&lt;-</span> means<span class="sc">$</span><span class="st">`</span><span class="at">PTA_Avg_EHF</span><span class="st">`</span>[means<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Normal"</span>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the difference between the means (to represent as in article)</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>mean_difference_ehf <span class="ot">&lt;-</span> mean_impaired <span class="sc">-</span> mean_normal</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the difference</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_difference_ehf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.55246</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset the data into two groups: EHF-Normal and EHF-Impaired for PTA_SF</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>group_control <span class="ot">&lt;-</span> d<span class="sc">$</span>PTA_Avg_SF[d<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Normal"</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>group_impaired <span class="ot">&lt;-</span> d<span class="sc">$</span>PTA_Avg_SF[d<span class="sc">$</span>Group <span class="sc">==</span> <span class="st">"EHF- Impaired"</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform independent samples t-test for PTA_SF ( I was confused regarding the type of test used in the article (between two sample t-test or ANOVA) as it was not mentioned in the article clearly.However, author confirmed, independent t-test was used )</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>t_test_result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(group_control, group_impaired)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>t_test_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  group_control and group_impaired
+t = -7.8276, df = 45.638, p-value = 5.602e-10
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -4.736136 -2.798232
+sample estimates:
+mean of x mean of y 
+ 5.327736  9.094920 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ANOVA model for calculating effect size used in article</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>anova_model_SF <span class="ot">&lt;-</span> <span class="fu">aov</span>(PTA_Avg_SF <span class="sc">~</span> Group, <span class="at">data =</span> d)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model_SF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+Group         1    501   501.5   43.92 8.28e-11 ***
+Residuals   540   6165    11.4                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate partial omega squared</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>partial_omega_squared_SF <span class="ot">&lt;-</span> <span class="fu">omega_squared</span>(anova_model_SF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>For one-way between subjects designs, partial omega squared is
+  equivalent to omega squared. Returning omega squared.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(partial_omega_squared_SF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Omega2 |       95% CI
+---------------------------------
+Group     |   0.07 | [0.04, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate confidence intervals for the parameters</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ci_anova_SF <span class="ot">&lt;-</span> <span class="fu">confint</span>(anova_model_SF)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ci_anova_SF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     2.5 %    97.5 %
+(Intercept)       8.018211 10.171629
+GroupEHF- Normal -4.883746 -2.650622</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform independent samples t-test for PTA_EHF (there are two group mean), two sample t-test is administed</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>t_test_result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(group_control, group_impaired)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>t_test_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  group_control and group_impaired
+t = -7.8276, df = 45.638, p-value = 5.602e-10
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -4.736136 -2.798232
+sample estimates:
+mean of x mean of y 
+ 5.327736  9.094920 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ANOVA for calculating partial omega squared</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>anova_model_EHF <span class="ot">&lt;-</span> <span class="fu">aov</span>(PTA_Avg_EHF <span class="sc">~</span> Group, <span class="at">data =</span> d)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model_EHF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Group         1   6490    6490     246 &lt;2e-16 ***
+Residuals   540  14246      26                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate partial omega squared</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>partial_omega_squared_EHF <span class="ot">&lt;-</span> <span class="fu">omega_squared</span>(anova_model_EHF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>For one-way between subjects designs, partial omega squared is
+  equivalent to omega squared. Returning omega squared.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(partial_omega_squared_EHF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Omega2 |       95% CI
+---------------------------------
+Group     |   0.31 | [0.26, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate confidence intervals for the parameters</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ci_anova_EHF <span class="ot">&lt;-</span> <span class="fu">confint</span>(anova_model_EHF)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ci_anova_EHF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     2.5 %    97.5 %
+(Intercept)       16.74043  20.01395
+GroupEHF- Normal -15.24980 -11.85512</code></pre>
+</div>
+</div>
+<p><strong>COMPARISION WITH ORIGINAL PAPER:</strong> The output obtained aligns consistently with the findings reported in the original paper. Specifically, the original article noted that EHF-impaired children exhibited a 3.76 dB higher PTASF and a 13.45 dB higher PTAEHF compared to controls. Additionally, the original article provided 95% confidence intervals for PTASF (2.56 to 4.80) and PTAEHF (11.73 to 15.16), which were mirrored in the output obtained from the code execution. Furthermore, both PTASF (p &lt; 0.001, partial ω2 = 0.07) and PTAEHF (p &lt; 0.001, partial ω2 = 0.30) were reported to have statistically significant differences between the EHF-impaired group and the EHF normal group in the original article. Similarly, the output from above code also mirrored these values. Therefore, findings have been successfully replicated.</p>
+<p>B) Read the dataset and modify the data to prepare for running a linear mixed model effect on DPOAE Magnitude among the EHF loss and EHF Normal groups. Apply the linear mixed model effect to assess the difference in DPOAE magnitude while controlling for the effects of age and Otitis Media.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rstatix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:effectsize':
+
+    cohens_d, eta_squared</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co"># for getting p-value as well in summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Matrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lmerTest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:lme4':
+
+    lmer</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    step</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the provided dataset</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"Data/DPOAE_Update_Long_final_update_gender_one_freq.csv"</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">Group =</span> <span class="fu">col_character</span>()))</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 15
+  SubjectID EHFLoss DPOAE_Final Avg_DIN HO_OM Socioeconomic_Status Age_round
+  &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt;
+1 ID35            0        11.8    -9.1     0 &lt;NA&gt;                        11
+2 ID37            0         6.9   -10.4     0 &lt;NA&gt;                        13
+3 ID43            0         9.7    -9.9     0 &lt;NA&gt;                        12
+4 ID44            0         4.7    -8.1     1 &lt;NA&gt;                         9
+5 ID45            0        12.5    -6.9     0 &lt;NA&gt;                        13
+6 ID53            0         5.9   -10.9     0 &lt;NA&gt;                         9
+# ℹ 8 more variables: Age_log &lt;dbl&gt;, EHF_avg &lt;dbl&gt;, SF_avg &lt;dbl&gt;, SP_avg &lt;dbl&gt;,
+#   DPOAE_AVG &lt;dbl&gt;, Sex &lt;chr&gt;, Ear &lt;chr&gt;, DPavg &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "SubjectID"            "EHFLoss"              "DPOAE_Final"         
+ [4] "Avg_DIN"              "HO_OM"                "Socioeconomic_Status"
+ [7] "Age_round"            "Age_log"              "EHF_avg"             
+[10] "SF_avg"               "SP_avg"               "DPOAE_AVG"           
+[13] "Sex"                  "Ear"                  "DPavg"               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  d is the dataset containg DPOAE data, fitting linear mixed model effect in the dataset controlling the effect of age and otitis media</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>mixed_model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(DPOAE_AVG <span class="sc">~</span> Age_log <span class="sc">+</span> EHFLoss <span class="sc">+</span> HO_OM <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>SubjectID), <span class="at">data =</span> d, <span class="at">REML =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mixed_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: DPOAE_AVG ~ Age_log + EHFLoss + HO_OM + (1 | SubjectID)
+   Data: d
+
+     AIC      BIC   logLik deviance df.resid 
+   457.4    472.7   -222.7    445.4       88 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.79156 -0.50070  0.01718  0.50879  1.85461 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ SubjectID (Intercept) 15.196   3.898   
+ Residual               1.407   1.186   
+Number of obs: 94, groups:  SubjectID, 47
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)   1.0520     4.1377 33.4765   0.254  0.80085   
+Age_log       3.6498     4.1490 33.8039   0.880  0.38525   
+EHFLoss      -2.4663     0.7183 67.4002  -3.434  0.00102 **
+HO_OM        -1.8261     2.0866 33.4389  -0.875  0.38772   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+        (Intr) Age_lg EHFLss
+Age_log -0.988              
+EHFLoss  0.028 -0.077       
+HO_OM    0.001 -0.045  0.013</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the mixed model </span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>summary_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(mixed_model)</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
+  method [lmerModLmerTest]
+Formula: DPOAE_AVG ~ Age_log + EHFLoss + HO_OM + (1 | SubjectID)
+   Data: d
+
+     AIC      BIC   logLik deviance df.resid 
+   457.4    472.7   -222.7    445.4       88 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-1.79156 -0.50070  0.01718  0.50879  1.85461 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ SubjectID (Intercept) 15.196   3.898   
+ Residual               1.407   1.186   
+Number of obs: 94, groups:  SubjectID, 47
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(&gt;|t|)   
+(Intercept)   1.0520     4.1377 33.4765   0.254  0.80085   
+Age_log       3.6498     4.1490 33.8039   0.880  0.38525   
+EHFLoss      -2.4663     0.7183 67.4002  -3.434  0.00102 **
+HO_OM        -1.8261     2.0866 33.4389  -0.875  0.38772   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+        (Intr) Age_lg EHFLss
+Age_log -0.988              
+EHFLoss  0.028 -0.077       
+HO_OM    0.001 -0.045  0.013</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate confidence intervals</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  CI <span class="ot">&lt;-</span> <span class="fu">confint</span>(mixed_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Computing profile confidence intervals ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Confidence Intervals:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Confidence Intervals:"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(CI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+.sig01       3.0121259  5.0467610
+.sigma       0.9539022  1.5494334
+(Intercept) -7.2564175  9.4320703
+Age_log     -4.8254382 11.9290148
+EHFLoss     -4.6009796 -0.7314945
+HO_OM       -6.0246686  2.3898681</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate partial omega squared</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>partial_omega_squared <span class="ot">&lt;-</span> <span class="fu">omega_squared</span>(mixed_model)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(partial_omega_squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA (Type III)
+
+Parameter | Omega2 (partial) |       95% CI
+-------------------------------------------
+Age_log   |             0.00 | [0.00, 1.00]
+EHFLoss   |             0.13 | [0.03, 1.00]
+HO_OM     |             0.00 | [0.00, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div>
+<p>Comparison with the original paper: The results obtained from the execution of the above code were consistent with those reported in the original paper. Specifically,the original article reported the overall DPOAE magnitude was significantly lower for the EHF-impaired group compared to the EHF-normal group (β = -2.47, 95% CI: -4.60 to -0.73, p &lt; 0.001, partial ω2 = 0.13). The result that are obtained from above code are exactly similar as reported in the original article.Furthermore, the original article reported effects of age and Otitis media history were not significant (age: β = 3.65, 95% CI: -4.83 to 11.93, p = 0.38; OM history: β = -1.83, 95% CI: -6.02 to 2.39, p = 0.38), which aligns with the output obtained above from the above executed code.</p>
+<ol start="8" type="1">
+<li><p><strong>DISCUSSION AND REFLECTION</strong>: In completing the replication assignment, I successfully reproduced much of the content; however, I encountered difficulty in comprehending the statistical analysis employed by the author. A thorough explanation of the statistical methods utilized would have greatly aided in understanding their methodology. Without this information, it was challenging to accurately replicate their approach. After several attempts, I managed to infer their methodology.</p>
+<p>Notably, the author omitted any mention of outlier removal and missing value handling in the method section. This omission complicated the calculation of standard errors and standard deviations. It would have been preferable if the author had provided a detailed description of the statistical methods employed, including any steps taken to address outliers and missing data.</p></li>
+<li><p><strong>REFERENCES:</strong></p></li>
+</ol>
+<p>Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science: a practical primer for t-tests and ANOVAs. <em>Front Psychol</em>, <em>4</em>, 863. <a href="https://doi.org/10.3389/fpsyg.2013.00863" class="uri">https://doi.org/10.3389/fpsyg.2013.00863</a></p>
+<p>Mishra, S. K., Saxena, U., &amp; Rodrigo, H. (2022). Hearing Impairment in the Extended High Frequencies in Children Despite Clinically Normal Hearing. <em>Ear Hear</em>, <em>43</em>(6), 1653-1660. <a href="https://doi.org/10.1097/AUD.0000000000001225" class="uri">https://doi.org/10.1097/AUD.0000000000001225</a></p>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
