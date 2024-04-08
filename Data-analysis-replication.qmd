@@ -44,7 +44,7 @@ output: html
 
         \- Visualization of hearing threshold across frequencies (250Hz-16kHz) for both the EHF-normal and EHF-impaired populations to illustrate the main findings of the study.
 
-         - Visualization of DPOAE magnitude for both the EHF-normal and EHF-impaired groups across frequencies.
+        \- Visualization of DPOAE magnitude for both the EHF-normal and EHF-impaired groups across frequencies.
 
         \- Replication of inferential statistics to demonstrate differences in threshold between the groups for both standard frequency and extended high frequency.
 
